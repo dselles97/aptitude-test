@@ -50,8 +50,45 @@ public class QuotesController : ControllerBase
                 .FirstOrDefaultAsync(q => q.Id == id);
         return Ok(quote);
     }
-    
+    [HttpPut("{id:int}")]
+    public async Task<IActionResult> UpdateQuote([FromRoute] int id, [FromBody] Quote quote)
+    {
+        var findQuote = await _context.Quotes.FindAsync(id);
+        if(findQuote != null && findQuote.Id == id){
+            findQuote.Premium = quote.Premium;
+            if (findQuote.State is not null)
+            {
+                findQuote.State.Rate = quote.State.Rate;
+                findQuote.State.Abbreviation = quote.State.Abbreviation;
+            }
+            findQuote.StateId = quote.StateId;
+            findQuote.Name = quote.Name;
+            findQuote.Tiv = quote.Tiv;
+            await _context.SaveChangesAsync();
+        }
+        return Ok(findQuote);   
+    }
     // Implement POST
+    [HttpPost]
+    public async Task<IActionResult> SaveQuote([FromForm] string name, [FromForm] string state, [FromForm] int tiv)
+    {
+        Quote quote = new Quote();
+        if (!string.IsNullOrEmpty(name) && !string.IsNullOrEmpty(state)) {
+            quote.Name = name.Trim();
+            quote.Tiv = tiv;
+            var stateAbbreviation = await _context.States.Where(q => q.Abbreviation == state).FirstOrDefaultAsync();
+            if (stateAbbreviation is not null)
+            {
+                quote.State = stateAbbreviation;
+                quote.StateId = stateAbbreviation.Id;
+                quote.Premium = (tiv * stateAbbreviation.Rate) * 100;
+            }
+            _context.Quotes.Add(quote);
+            await _context.SaveChangesAsync();
+        }
+        return Ok(quote);
+    }
+    
     
     // Implement PUT
     
