@@ -66,27 +66,29 @@ public class QuotesController : ControllerBase
             findQuote.Tiv = quote.Tiv;
             await _context.SaveChangesAsync();
         }
-        return Ok(findQuote);   
+        return Ok(new { findQuote, success = true });   
     }
     // Implement POST
     [HttpPost]
-    public async Task<IActionResult> SaveQuote([FromForm] string name, [FromForm] string state, [FromForm] int tiv)
+    public async Task<IActionResult> SaveQuote([FromForm] string name, [FromForm] string stateId, [FromForm] string tiv)
     {
         Quote quote = new Quote();
-        if (!string.IsNullOrEmpty(name) && !string.IsNullOrEmpty(state)) {
+        if (!string.IsNullOrEmpty(name) && !string.IsNullOrEmpty(stateId)) {
+            int parsedStateId = Int32.TryParse(stateId, out int state_id) ? state_id : 0;
+            int parsedTIV = Int32.TryParse(tiv, out int Tiv) ? Tiv : 0;
             quote.Name = name.Trim();
-            quote.Tiv = tiv;
-            var stateAbbreviation = await _context.States.Where(q => q.Abbreviation == state).FirstOrDefaultAsync();
+            quote.Tiv = parsedTIV;
+            var stateAbbreviation = await _context.States.Where(q => q.Id == parsedStateId).FirstOrDefaultAsync();
             if (stateAbbreviation is not null)
             {
                 quote.State = stateAbbreviation;
                 quote.StateId = stateAbbreviation.Id;
-                quote.Premium = (tiv * stateAbbreviation.Rate) * 100;
+                quote.Premium = (parsedTIV * stateAbbreviation.Rate) * 100;
             }
             _context.Quotes.Add(quote);
             await _context.SaveChangesAsync();
         }
-        return Ok(quote);
+        return Ok(new { quote, success = true });
     }
     
     

@@ -8,5 +8,5 @@ public class Quote
     public decimal Premium { get; set; }
     public decimal Tiv { get; set; }
     public int StateId { get; set; }
-    public State State { get; set; }
+    public State? State { get; set; }
 }
