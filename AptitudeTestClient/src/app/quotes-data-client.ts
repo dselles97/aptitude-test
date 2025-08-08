@@ -9,7 +9,7 @@ import {State} from './models/state';
 })
 export class QuotesDataClient {
   private readonly http = inject(HttpClient);
-  private readonly url = 'https://localhost:44363/api/quotes';
+  private readonly url = 'https://localhost:7190/api/quotes';
 
   getAllQuotes(): Observable<Quote[]> {
     return this.http.get<Quote[]>(this.url);
@@ -21,18 +21,17 @@ export class QuotesDataClient {
   }
 
   createQuote(quote: Quote): Observable<Quote | void> {
-    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-    return this.http.post<Quote | void>(this.url, quote, {
-      headers: headers
-    });
+    const formData = new FormData();
+    formData.append('name', quote.name);
+    formData.append('stateId', quote.stateId.toString());
+    formData.append('tiv', quote.tiv.toString());
+    return this.http.post<Quote | void>(this.url, formData)
   }
 
   updateQuote(id: string, quote: Quote): Observable<Quote | void> {
-    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    //const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     const url = `${this.url}/${id}`;
-    return this.http.put<Quote | void>(url, quote, {
-      headers: headers
-    });
+    return this.http.put<Quote | void>(url, quote)
   }
 
   getAllStates(): Observable<State[]> {

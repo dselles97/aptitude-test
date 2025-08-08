@@ -8,7 +8,7 @@ import {RouterLink, RouterLinkActive} from '@angular/router';
     RouterLinkActive
   ],
   template: `
-    <nav class="navbar">
+    <nav class="navbar sticky top-0 z-50 bg-white shadow-sm">
       <div class="nav-container">
         <div class="nav-content">
           <div class="nav-left">
