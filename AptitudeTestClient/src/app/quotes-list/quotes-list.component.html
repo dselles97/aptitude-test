@@ -14,6 +14,7 @@
       <th>Rate</th>
       <th>TIV</th>
       <th>State</th>
+      <th></th>
     </tr>
     </thead>
     <tbody>
@@ -26,6 +27,7 @@
           <td>{{quote.rate}}</td>
           <td>{{quote.tiv | currency: '$' : 'symbol' : '1.0-2'}}</td>
           <td>{{quote.state}}</td>
+          <td><a class="h-full text-white rounded bg-[#3b82f6] !p-2 !my-2 font-bold hover:!bg-[#1d4ed8]" [routerLink]="['/quotes', quote.id]">Edit Quote</a></td>
         </tr>
       }
     </tbody>

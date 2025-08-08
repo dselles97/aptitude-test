@@ -1,8 +1,33 @@
-<p>Implement logic here to submit a new quote</p>
 
 <form [formGroup]="form" (ngSubmit)="submit()">
-<!-- Add form here -->
+    <div class="flex flex-col justify-center w-full sm:!px-32">
+        <h1 class="text-center text-xl font-bold text-[#1f2937]">Create new quote</h1>
+        <label>Name</label>
+        <input type="text" class="bg-[#F0F0F0] border border-[#1f2937] rounded !pl-2" placeholder="Name" formControlName="name">
+        <label>Total Insurable Value</label>
+        <input type="text" class="bg-[#F0F0F0] border border-[#1f2937] rounded !pl-2" placeholder="TIV"  formControlName="tiv">
+    <label for="stateId" class="block mb-1">State</label>
+    <select id="stateId" formControlName="stateId" class="border border-[#1f2937] rounded bg-[#F0F0F0] px-3 py-2 w-full">
+      <option value="">Select a state</option>
+      <option *ngFor="let state of states" class="!pl-2" [value]="state.id">{{ state.abbreviation }}</option>
+    </select>
+        <button [ngStyle]=
+        "{
+            'background-color' : form.invalid || successful ? 'gray' : '#3b82f6'
+        }" 
+        class="bg-[#3b82f6] hover:!bg-[#1f2937] text-white font-bold rounded !py-2 px-4 my-4 !mt-4 transition-colors duration-200 ease-in-out" 
+        [disabled]="form.invalid || successful" 
+        type="submit">Submit</button>
+    </div>
 </form>
 
-<hr>
-<pre>Form value: {{form.value | json}}</pre>
+
+<div *ngIf="isLoading" class="flex items-center justify-center !mt-4">
+  <div class="w-6 h-6 border-4 border-blue-500 border-t-blue-300 rounded-full animate-spin"></div>
+</div>
+
+<!-- Success message only when done -->
+<div *ngIf="isSuccess" class="text-green-600 !mt-2 font-bold text-center">
+  {{ successful }}
+</div>
+

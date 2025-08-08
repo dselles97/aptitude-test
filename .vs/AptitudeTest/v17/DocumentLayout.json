@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "D:\\Projects\\aptitude-test\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{F2967EAE-E7A7-408A-B6CD-4782581227D1}|AptitudeTestServer\\AptitudeTestServer.csproj|d:\\projects\\aptitude-test\\aptitudetestserver\\seed.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{F2967EAE-E7A7-408A-B6CD-4782581227D1}|AptitudeTestServer\\AptitudeTestServer.csproj|solutionrelative:aptitudetestserver\\seed.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{F2967EAE-E7A7-408A-B6CD-4782581227D1}|AptitudeTestServer\\AptitudeTestServer.csproj|d:\\projects\\aptitude-test\\aptitudetestserver\\controllers\\quotescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F2967EAE-E7A7-408A-B6CD-4782581227D1}|AptitudeTestServer\\AptitudeTestServer.csproj|solutionrelative:aptitudetestserver\\controllers\\quotescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -26,7 +30,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 17,
+          "SelectedChildIndex": 14,
           "Children": [
             {
               "$type": "Bookmark",
@@ -86,7 +90,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
+              "Title": "seed.json",
+              "DocumentMoniker": "D:\\Projects\\aptitude-test\\AptitudeTestServer\\seed.json",
+              "RelativeDocumentMoniker": "AptitudeTestServer\\seed.json",
+              "ToolTip": "D:\\Projects\\aptitude-test\\AptitudeTestServer\\seed.json",
+              "RelativeToolTip": "AptitudeTestServer\\seed.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-08-02T03:32:30.273Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "StateDto.cs",
               "DocumentMoniker": "D:\\Projects\\aptitude-test\\AptitudeTestServer\\Responses\\StateDto.cs",
               "RelativeDocumentMoniker": "AptitudeTestServer\\Responses\\StateDto.cs",
@@ -99,7 +116,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "launchSettings.json",
               "DocumentMoniker": "D:\\Projects\\aptitude-test\\AptitudeTestServer\\Properties\\launchSettings.json",
               "RelativeDocumentMoniker": "AptitudeTestServer\\Properties\\launchSettings.json",
@@ -112,7 +129,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "appsettings.json",
               "DocumentMoniker": "D:\\Projects\\aptitude-test\\AptitudeTestServer\\appsettings.json",
               "RelativeDocumentMoniker": "AptitudeTestServer\\appsettings.json",
@@ -125,13 +142,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "QuotesController.cs",
               "DocumentMoniker": "D:\\Projects\\aptitude-test\\AptitudeTestServer\\Controllers\\QuotesController.cs",
               "RelativeDocumentMoniker": "AptitudeTestServer\\Controllers\\QuotesController.cs",
               "ToolTip": "D:\\Projects\\aptitude-test\\AptitudeTestServer\\Controllers\\QuotesController.cs",
               "RelativeToolTip": "AptitudeTestServer\\Controllers\\QuotesController.cs",
-              "ViewState": "AQIAACkAAAAAAAAAAAAwwEEAAAAXAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAFIAAAA1AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-02T02:00:15.284Z",
               "EditorCaption": ""
